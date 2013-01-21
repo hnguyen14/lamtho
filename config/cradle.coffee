@@ -1,5 +1,6 @@
 cradle = require 'cradle'
 url = require 'url'
+view = require '../couchdb/view'
 
 database = process.env.DATABASE || 'tho'
 environment = process.env.ENV || 'development'
@@ -18,5 +19,6 @@ if cloudant.auth
 server = new (cradle.Connection)(options)
 
 db = server.database database
+view db
 
 module.exports = db
